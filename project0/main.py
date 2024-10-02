@@ -5,6 +5,7 @@ import os
 import logging
 #from PyPDF2 import PdfReader
 from pypdf import PdfReader
+import logging
 
 import urllib.request
 
@@ -25,9 +26,6 @@ def fetch_incidents(url):
 
     return '../incident_report.pdf'
 
-# Set up logging to overwrite on every new run
-logging.basicConfig(filename='incident_parsing.log', level=logging.INFO, 
-                    format='%(asctime)s - %(message)s', filemode='w')
 
 # Split the line based on patterns
 def split_line_regex(line):
@@ -40,32 +38,42 @@ def split_line_regex(line):
     - nature
     - incident_ori
     """
+
+
+    lst_str = re.split(r"\s{2,}", line)
+    lst_str = [item.strip() for item in lst_str]
+    # print(lst_str)
+    return lst_str
+
     # Regular expression to capture date_time, incident_number, and incident_ori
-    match = re.match(r'(\d+/\d+/\d+\s\d+:\d+)\s+(\S+)\s+(.*)\s+(\S+)$', line)
+
+    # print(line)
+    # match = re.match(r'(\d+/\d+/\d+\s\d+:\d+)\s{2,}(\S+)\s{2,}(.*)\s{2,}(\S+)$', line)
     
-    if match:
-        date_time = match.group(1)
-        incident_number = match.group(2)
-        incident_ori = match.group(4)
+    
+    # if match:
+    #     date_time = match.group(1)
+    #     incident_number = match.group(2)
+    #     incident_ori = match.group(4)
         
-        # Everything between incident_number and incident_ori is 'location' and 'nature'
-        middle_part = match.group(3)
+    #     # Everything between incident_number and incident_ori is 'location' and 'nature'
+    #     middle_part = match.group(3)
         
-        # Try to split 'middle_part' into 'location' and 'nature' (this is an assumption based on patterns)
-        location_nature = middle_part.rsplit(' ', 1)
-        if len(location_nature) == 2:
-            location, nature = location_nature
-        else:
-            # In case it's not splitable, assign the entire middle_part as location and leave nature empty
-            location = middle_part
-            nature = ''
+    #     # Try to split 'middle_part' into 'location' and 'nature' (this is an assumption based on patterns)
+    #     location_nature = middle_part.rsplit(' ', 1)
+    #     if len(location_nature) == 2:
+    #         location, nature = location_nature
+    #     else:
+    #         # In case it's not splitable, assign the entire middle_part as location and leave nature empty
+    #         location = middle_part
+    #         nature = ''
         
-        # Log the fields extracted for debugging
-        logging.info(f"Extracted fields: {date_time}, {incident_number}, {location}, {nature}, {incident_ori}")
-        return [date_time, incident_number, location, nature, incident_ori]
-    else:
-        logging.info(f"Line didn't match pattern: {line}")
-        return []
+    #     # Log the fields extracted for debugging
+    #     logging.info(f"Extracted fields: {date_time}, {incident_number}, {location}, {nature}, {incident_ori}")
+    #     return [date_time, incident_number, location, nature, incident_ori]
+    # else:
+    #     logging.info(f"Line didn't match pattern: {line}")
+    #     return []
 
 # Function to parse the PDF file and return a DataFrame
 def extract_incidents(pdf_file_path):
@@ -78,19 +86,24 @@ def extract_incidents(pdf_file_path):
     
     logging.info(f"Reading PDF file: {pdf_file_path} with {num_pages} pages.")
     
-    for page_num in range(num_pages):
-        page = reader.pages[page_num]
-        text = page.extract_text()  # Extract the text from each page
+    first_page = True
+    for page in reader.pages:
+        # page = reader.pages[page_num]
+        text = page.extract_text(extraction_mode= "layout", layout_mode_space_vertically = False)  # Extract the text from each page
         
         if text:
             lines = text.split('\n')
             #print(f"\n=== Page {page_num} Lines ===\n{lines}\n")  # Print raw lines for debugging
-            
+            if first_page:
+                lines = lines[2:]
+                first_page = False
+
             for line_num, line in enumerate(lines):
                 # Skip headers, junk lines, or lines without sufficient data
-                if "Incident Number" in line or "NORMAN POLICE" in line or not line.strip():
-                    logging.info(f"Skipped header or junk line: {line}")
-                    continue
+                # if "Incident Number" in line or "NORMAN POLICE" in line or not line.strip():
+                #     logging.info(f"Skipped header or junk line: {line}")
+                #     continue
+
 
                 fields = split_line_regex(line)
 
@@ -104,10 +117,13 @@ def extract_incidents(pdf_file_path):
                     })
                 else:
                     logging.info(f"Skipped line (incomplete): {line}")
+        else:
+            logging.info("page skip")
 
     # Create a DataFrame from the extracted data
     df = pd.DataFrame(incidents, columns=['date_time', 'incident_number', 'location', 'nature', 'incident_ori'])
     
+    # df.to_csv("temp.csv")
     logging.info(f"Extracted {len(df)} incidents.")
     
     # Print the DataFrame for debugging
@@ -116,22 +132,22 @@ def extract_incidents(pdf_file_path):
     return df
 
 # Create SQLite Database
-def create_db():
-    db_path = os.path.abspath('../resources/normanpd.db')
-    #print(f"Database path: {db_path}")
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS incidents (
-            incident_time TEXT,
-            incident_number TEXT UNIQUE,
-            incident_location TEXT,
-            nature TEXT,
-            incident_ori TEXT
-        )
-    ''')
-    conn.commit()
-    return conn
+# def create_db():
+#     db_path = os.path.abspath('../resources/normanpd.db')
+#     #print(f"Database path: {db_path}")
+#     conn = sqlite3.connect(db_path)
+#     cursor = conn.cursor()
+#     cursor.execute('''
+#         CREATE TABLE IF NOT EXISTS incidents (
+#             incident_time TEXT,
+#             incident_number TEXT UNIQUE,
+#             incident_location TEXT,
+#             nature TEXT,
+#             incident_ori TEXT
+#         )
+#     ''')
+#     conn.commit()
+#     return conn
 
 # Insert data into the database
 def populate_db(conn, incidents_df):
@@ -191,8 +207,15 @@ def main(url):
     incidents_df = extract_incidents(pdf_file)
     
     # Create the database and insert the data
-    conn = create_db()
-    populate_db(conn, incidents_df)
+    # conn = create_db()
+    # populate_db(conn, incidents_df)
+
+    # Create the database and insert the data
+    db_path = os.path.abspath('resources/normanpd.db')
+    print(db_path)
+    logging.info(f"db path {db_path}")
+    conn = sqlite3.connect(db_path)
+    incidents_df.to_sql("incidents", conn, if_exists='replace', index=False)
 
     # Print the status of each nature of incidents
     #print("=== Status of Incidents by Nature ===")
@@ -209,6 +232,16 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("--incidents", type=str, required=True, help="Incident summary URL.")
+
+    import logging
+
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        datefmt="%m/%d/%Y %H:%M:%S",
+        filename="tests/assignment0.log",
+        filemode="a",
+    )
     
     args = parser.parse_args()
     if args.incidents:

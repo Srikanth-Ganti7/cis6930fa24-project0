@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8392974eab5d9d6c49d2daaf5cd6564eb312766bcaa2bad1c8304c44c6e61b00"
+            "sha256": "854c2d2eff093547f0c944c4645619cad599ab08b5a81bc36786f1ce738560dd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,9 @@
         ]
     },
     "default": {
+        "assignment0": {
+            "file": "."
+        },
         "colorama": {
             "hashes": [
                 "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44",

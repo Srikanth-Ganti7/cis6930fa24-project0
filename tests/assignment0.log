@@ -1,0 +1,49 @@
+10/01/2024 21:10:50 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:10:50 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:10:50 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:10:50 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:10:50 - root - INFO - Extracted 356 incidents.
+10/01/2024 21:11:42 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:11:42 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:11:42 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:11:42 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:11:42 - root - INFO - Extracted 356 incidents.
+10/01/2024 21:13:42 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:13:42 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:13:42 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:13:43 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:13:43 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:13:43 - root - INFO - Extracted 356 incidents.
+10/01/2024 21:16:00 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:16:00 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:16:00 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:16:00 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:16:00 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:16:00 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:19:16 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:19:16 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:19:16 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:19:16 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:19:16 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:19:16 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:19:58 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:19:58 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:19:58 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:19:58 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:19:58 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:19:58 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:19:58 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\resources\normanpd.db
+10/01/2024 21:20:38 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:20:38 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:20:38 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:20:39 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:20:39 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:20:39 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:20:39 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\resources\normanpd.db
+10/01/2024 21:21:30 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:21:30 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:21:30 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:21:30 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:21:30 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:21:30 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:21:30 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db

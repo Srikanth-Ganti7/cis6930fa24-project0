@@ -8,6 +8,7 @@ pandas = "*"
 pypdf = "*"
 pytest = "*"
 numpy = "*"
+assignment0 = {file = "."}
 
 [dev-packages]
 
