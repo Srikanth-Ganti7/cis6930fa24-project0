@@ -22,6 +22,11 @@ pipenv install .
 ## How to run
 Run the program using the following commands:
 
+
+[![Demo Video] https://github.com/user-attachments/assets/73eb0144-50a1-4b7f-b05a-44db51fb6092
+
+
+
 ### Fetch data from the data:
 ```bash
 pipenv run python project0/main.py --incidents <URL_of_incident_report_PDF>
