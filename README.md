@@ -35,14 +35,20 @@ pipenv run python project0/main.py --incidents https://www.normanok.gov/sites/de
 
 The script will download the PDF, extract incidents, store them in the database, and print a summary of the incidents by nature.
 
+After the incident data has been populated into the database, the program will output the number of occurrences for each incident nature.
+
 ## Expected output
 
-When fetching data from the FBI API or loading from a local file, the program should output thorn-separated values for each record, including title, subjects, and field_offices
+After running the main program with the provided PDF incident report, the following is the expected outputs:
 
 ```bash
-John DoeþArmed and Dangerous,AssaultþNew York
-Jane SmithþFraudþLos Angeles,Chicago
-MARY JOHNSON (DAVIS)þþseattle
+Aid|2
+Alarm|16
+Area|7
+Assignment|3
+Assist|10
+Burglary|1
+....
 
 ```
 

@@ -8,7 +8,7 @@ setup(
     packages=find_packages(exclude=('tests', 'docs', 'resources')),
     install_requires=[
         'pandas',
-        'PyPDF2',
+        'pypdf',
         'urllib',
         'sqlite3'
     ],

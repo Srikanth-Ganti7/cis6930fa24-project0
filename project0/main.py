@@ -15,9 +15,9 @@ def fetch_incidents(url):
     response = urllib.request.urlopen(req)
 
     # Check the response status and size
-    print(f"Response status: {response.status}")
+    #print(f"Response status: {response.status}")
     pdf_data = response.read()
-    print(f"Downloaded PDF size: {len(pdf_data)} bytes")
+    #print(f"Downloaded PDF size: {len(pdf_data)} bytes")
 
     # Save the file locally
     with open('../incident_report.pdf', 'wb') as f:
@@ -118,7 +118,7 @@ def extract_incidents(pdf_file_path):
 # Create SQLite Database
 def create_db():
     db_path = os.path.abspath('../resources/normanpd.db')
-    print(f"Database path: {db_path}")
+    #print(f"Database path: {db_path}")
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute('''
@@ -150,7 +150,7 @@ def populate_db(conn, incidents_df):
                 VALUES (?, ?, ?, ?, ?)
             ''', (incident['date_time'], incident['incident_number'], incident['location'], incident['nature'], incident['incident_ori']))
         conn.commit()
-        print("Data inserted successfully.")
+        #print("Data inserted successfully.")
     except Exception as e:
         print(f"Error inserting data: {e}")
 
@@ -195,7 +195,7 @@ def main(url):
     populate_db(conn, incidents_df)
 
     # Print the status of each nature of incidents
-    print("=== Status of Incidents by Nature ===")
+    #print("=== Status of Incidents by Nature ===")
     query(conn)
     
     # Print all inserted incidents
