@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 pypdf = "*"
-pdfplumber = "*"
 pandas = "*"
 setuptools = "*"
 pytest = "*"
