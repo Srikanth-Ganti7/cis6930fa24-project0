@@ -47,3 +47,57 @@
 10/01/2024 21:21:30 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
 10/01/2024 21:21:30 - root - INFO - Extracted 402 incidents.
 10/01/2024 21:21:30 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 21:30:26 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:30:26 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:30:26 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:30:27 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:30:27 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:30:27 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:30:27 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 21:44:14 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:44:31 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:45:03 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:46:48 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:47:35 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:47:35 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:47:35 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:47:36 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:47:36 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:47:36 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:47:36 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 21:53:37 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:53:37 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:53:37 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:53:37 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:53:37 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:53:37 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:53:37 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 21:54:37 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:54:37 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:54:37 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:54:37 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:54:37 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:54:37 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:54:37 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 21:56:34 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:58:06 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 21:58:06 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 21:58:06 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 21:58:07 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 21:58:07 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 21:58:07 - root - INFO - Extracted 402 incidents.
+10/01/2024 21:58:07 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 22:00:05 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 22:00:05 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 22:00:05 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 22:00:05 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 22:00:05 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 22:00:05 - root - INFO - Extracted 402 incidents.
+10/01/2024 22:00:05 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db
+10/01/2024 22:01:08 - root - INFO - Reading PDF file: ../incident_report.pdf with 24 pages.
+10/01/2024 22:01:08 - root - INFO - Skipped line (incomplete):        Date / Time             Incident Number                             Location                                                   Nature                                Incident ORI
+10/01/2024 22:01:08 - root - INFO - Skipped line (incomplete):                                                     / W LINDSEY ST
+10/01/2024 22:01:08 - root - INFO - Skipped line (incomplete):                                                    HWY
+10/01/2024 22:01:09 - root - INFO - Skipped line (incomplete):                                                                                           8/2/2024 10:25
+10/01/2024 22:01:09 - root - INFO - Extracted 402 incidents.
+10/01/2024 22:01:09 - root - INFO - db path C:\ganti.b\University of Florida\Coursework\SEM3\DE\Projects\Project0\cis6930fa24-project0\resources\normanpd.db

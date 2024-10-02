@@ -29,21 +29,15 @@ def fetch_incidents(url):
 
 # Split the line based on patterns
 def split_line_regex(line):
-    """
-    Extracts fields from a line of text from the incident report.
-    Assumes the line contains:
-    - date_time
-    - incident_number
-    - location
-    - nature
-    - incident_ori
-    """
 
 
-    lst_str = re.split(r"\s{2,}", line)
-    lst_str = [item.strip() for item in lst_str]
-    # print(lst_str)
-    return lst_str
+    parts = re.split(r"\s{2,}", line)
+    cleaned_parts = []
+    
+    for part in parts:
+        cleaned_parts.append(part.strip())
+    
+    return cleaned_parts
 
     # Regular expression to capture date_time, incident_number, and incident_ori
 

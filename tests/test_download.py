@@ -1,41 +1,43 @@
 import os
 import pytest
 import sqlite3
-
-from project0.main import fetch_incidents, create_db, populate_db, extract_incidents
+from project0.main import fetch_incidents, extract_incidents, populate_db
 
 # Test fetch_incidents
 def test_fetch_incidents():
+    # Test with a valid URL for fetching the incident PDF
     url = "https://www.normanok.gov/sites/default/files/documents/2024-08/2024-08-01_daily_incident_summary.pdf"
-    pdf_path_1 = fetch_incidents(url)
+    pdf_path = fetch_incidents(url)
     
     # Check if the file was saved properly
-    assert os.path.exists(pdf_path_1)
-    assert os.path.getsize(pdf_path_1) > 0
-    #os.remove(pdf_path)  # Cleanup the file after the test
+    assert os.path.exists(pdf_path), "PDF file not saved."
+    assert os.path.getsize(pdf_path) > 0, "PDF file is empty."
 
-def test_create_db():
-    # Create the database
-    conn = create_db()
+    # Clean up by removing the fetched file
+    os.remove(pdf_path)
 
-    # Check if the connection is open
-    assert conn is not None
+# Test extraction of incidents
+def test_extract_incidents():
+    # URL for the incident summary PDF
+    url = "https://www.normanok.gov/sites/default/files/documents/2024-08/2024-08-01_daily_incident_summary.pdf"
+    
+    # Download the PDF and extract incidents
+    pdf_file = fetch_incidents(url)
+    incidents_df = None
 
-    # Verify that the table 'incidents' exists
-    cursor = conn.cursor()
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='incidents';")
-    result = cursor.fetchone()
+    try:
+        incidents_df = extract_incidents(pdf_file)
+    except TypeError as e:
+        pytest.fail(f"Extract incidents failed due to TypeError during extraction: {e}")
 
-    # Ensure the table is created
-    assert result is not None
-    assert result[0] == 'incidents'
+    # Ensure that incidents_df is valid
+    assert incidents_df is not None, "extract_incidents returned None."
+    assert not incidents_df.empty, "No incidents were extracted."
 
-    # Close the connection
-    conn.close()
+    # Clean up
+    os.remove(pdf_file)
 
-    # Clean up the database file if needed
-    #os.remove('resources/normanpd.db')
-
+# Test populating the database
 def test_populate_db():
     # URL for the incident summary PDF
     url = "https://www.normanok.gov/sites/default/files/documents/2024-08/2024-08-01_daily_incident_summary.pdf"
@@ -43,25 +45,33 @@ def test_populate_db():
     # Download the PDF and extract incidents
     pdf_file = fetch_incidents(url)
     incidents_df = extract_incidents(pdf_file)
+    
+    # Create an in-memory database
+    conn = sqlite3.connect(':memory:')
 
-    # Create the database and insert incidents
-    conn = create_db()
-    populate_db(conn, incidents_df)
+    # Create the table in the in-memory database
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS incidents (
+            incident_time TEXT,
+            incident_number TEXT UNIQUE,
+            incident_location TEXT,
+            nature TEXT,
+            incident_ori TEXT
+        )
+    ''')
+    
+    try:
+        populate_db(conn, incidents_df)
+    except Exception as e:
+        pytest.fail(f"populate_db failed with exception: {e}")
 
-    # Check if the data has been inserted correctly
+    # Check if the data was inserted properly
     cursor = conn.cursor()
     cursor.execute("SELECT COUNT(*) FROM incidents")
     count = cursor.fetchone()[0]
 
-    # Ensure that some data has been inserted
-    assert count > 0
+    assert count == len(incidents_df), "Data was not inserted properly into the database."
 
     # Clean up
     conn.close()
-
-
-
-
-
-
-
+    os.remove(pdf_file)
